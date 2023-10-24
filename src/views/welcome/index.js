@@ -28,7 +28,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1, // Make sure this covers the whole screen
+    flex: 1,
   },
   container: {
     flex: 1,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 48,
-    fontWeight: 'bold', // Corrected this value
+    fontWeight: 'bold',
     marginBottom: 296,
     marginTop: 241,
   },
@@ -49,12 +49,14 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
-    marginBottom: 15,
     backgroundColor: 'white',
+    borderRadius: 25,
+    marginBottom: 15,
   },
   buttonText: {
-    fontSize: 18,
+    color: '#2245A6',
+    textAlign: 'center',
+    fontSize: 20,
     fontWeight: '500',
   },
   buttonOutline: {
