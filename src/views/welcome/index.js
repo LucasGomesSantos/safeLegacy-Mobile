@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 48,
-    fontWeight: 'bold',
-    marginBottom: 296,
+    marginBottom: 256,
     marginTop: 241,
+    fontFamily: 'Poppins_700Bold'
   },
   button: {
     width: '100%',
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '500',
+    fontFamily: 'Poppins_400Regular'
   },
   buttonOutline: {
     borderWidth: 1,
@@ -66,5 +67,6 @@ const styles = StyleSheet.create({
   },
   buttonOutlineText: {
     color: 'white',
+    fontFamily: 'Poppins_400Regular'
   },
 });
