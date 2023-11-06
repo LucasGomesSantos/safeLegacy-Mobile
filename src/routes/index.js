@@ -1,30 +1,10 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useEffect } from "react";
 
-import Login from '../views/login';
-import Register from '../views/register'
-import Welcome from '../views/welcome'
-
-const Stack = createNativeStackNavigator();
+import AppRoutes from "./app.routes";
+import AuthRoutes from "./auth.routes";
+import { useAuth } from "../context";
 
 export default function Routes() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name="Welcome"
-                component={Welcome}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Login"
-                component={Login}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Register"
-                component={Register}
-                options={{ headerShown: false }}
-            />
-        </Stack.Navigator>
-    )
+    const { isAuthenticated } = useAuth();
+    return isAuthenticated ? <AuthRoutes /> : <AppRoutes />
 }
-

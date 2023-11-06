@@ -5,6 +5,8 @@ import { useFonts, Poppins_100Thin, Poppins_300Light, Poppins_400Regular, Poppin
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 
+import { AuthProvider } from './src/context'
+
 export default function App() {
   let [fontsLoaded] = useFonts({
     Poppins_100Thin, Poppins_300Light, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black
@@ -15,9 +17,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <StatusBar />
-      <Routes />
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <StatusBar />
+        <Routes />
+      </NavigationContainer>
+    </AuthProvider>
   );
 }

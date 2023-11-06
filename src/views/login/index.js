@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import { useAuth } from '../../context';
+
 export default function Login() {
+    const { handleLogin } = useAuth();
+
     return (
         <LinearGradient
             colors={['#65827A', '#064580']}
@@ -24,7 +28,12 @@ export default function Login() {
                 <TouchableOpacity>
                     <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.loginButton}>
+                <TouchableOpacity style={styles.loginButton} onPress={() => {
+                    handleLogin({
+                        nome: 'Lucas',
+                        senha: 'Senha'
+                    })
+                }}>
                     <Text style={styles.loginButtonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.backButton}>
