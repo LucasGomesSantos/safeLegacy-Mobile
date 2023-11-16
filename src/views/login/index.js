@@ -30,8 +30,8 @@ export default function Login() {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.loginButton} onPress={() => {
                     handleLogin({
-                        nome: 'Lucas',
-                        senha: 'Senha'
+                        email: "email@teste.com",
+                        senha: "senha"
                     })
                 }}>
                     <Text style={styles.loginButtonText}>Login</Text>
