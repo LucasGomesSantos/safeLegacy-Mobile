@@ -1,27 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const MenuOptions = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.menuContainer}>
-            <TouchableOpacity style={styles.menuItem}>
-                <Icon name="home-outline" size={30} color="#000" />
+            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('MeusBens')}>
+                <Icon name="home-outline" size={30} color="#65827A" />
                 <Text style={styles.menuText}>Meus Bens</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem}>
-                <Icon name="book-outline" size={30} color="#000" />
+                <Icon name="book-outline" size={30} color="#65827A" />
                 <Text style={styles.menuText}>Recordações e fotos</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem}>
-                <Icon name="account-outline" size={30} color="#000" />
+                <Icon name="account-outline" size={30} color="#65827A" />
                 <Text style={styles.menuText}>Participantes</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]}>
                 <View style={styles.badge}>
                     <Text style={styles.badgeText}>+1</Text>
                 </View>
-                <Icon name="alert-outline" size={30} color="#000" />
+                <Icon name="alert-outline" size={30} color="#65827A" />
                 <Text style={styles.menuText}>Pendências</Text>
             </TouchableOpacity>
         </View>
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
     menuText: {
         fontSize: 16,
         marginTop: 10,
+        color: '#2245A6'
     },
     badge: {
         position: 'absolute',

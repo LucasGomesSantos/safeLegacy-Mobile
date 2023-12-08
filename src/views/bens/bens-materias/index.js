@@ -2,9 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
-import Header from '../../components/header';
-import { useAuth } from '../../context';
+
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useAuth } from '../../../context';
+import Header from '../../../components/header';
 
 
 const styles = StyleSheet.create({
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
       },
-      btnVoltar: {
+      btnHeader: {
         backgroundColor: '#FFF',
         // width: `40px`,
         // height: `40px`,
@@ -82,55 +84,28 @@ const main = () => {
         <View>
             <View style={styles.containerHeaderVoltar}>
                 <div>
-                    <TouchableOpacity style={styles.btnVoltar} onPress={() => navigation.navigate('Home')}>
+                    <TouchableOpacity style={styles.btnHeader} onPress={() => navigation.navigate('MeusBens')}>
                         {/* <Icon name="arrow-back-circle-sharp" size={30} color="#6B8265" /> */}
                         <small> {'<'} </small>
                     </TouchableOpacity>
                 </div>
-                <div style={{textAlign: 'center', width: '90%'}}>
-                    <Text style={styles.pageTitle}>Meus Bens</Text>
+                <div style={{textAlign: 'center', width: '85%'}}>
+                    <Text style={styles.pageTitle}>Meus Bens | Bens Materiais</Text>
+                </div>
+                <div>
+                    <TouchableOpacity style={styles.btnHeader} onPress={() => navigation.navigate('Home')}>
+                        <b>+</b>
+                    </TouchableOpacity>
                 </div>
             </View>
-        <View style={styles.menuContainer}>
-             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('listImoveis')}>
-                <Icon name="home-outline" size={30} color="#6B8265" />
-                <Text style={styles.menuText}>Imóveis</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('listVeiculos')}>
-                <Icon name="car" size={30} color="#6B8265" />
-                <Text style={styles.menuText}>Veículos</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('listBancosInvestimentos')}>
-                <Icon name="bank" size={30} color="#6B8265" />
-                <Text style={styles.menuText}>Bancos e Investimentos</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]} onPress={() => navigation.navigate('listBensMateriais')}>
-                {/* <View style={styles.badge}>
-                    <Text style={styles.badgeText}>+1</Text>
-                </View> */}
-                <Icon name="tv" size={30} color="#6B8265" />
-                <Text style={styles.menuText}>Bens Materiais</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]} onPress={() => navigation.navigate('listPets')}>
-                {/* <View style={styles.badge}>
-                    <Text style={styles.badgeText}>+1</Text>
-                </View> */}
-                <Icon name="dog" size={30} color="#6B8265" />
-                <Text style={styles.menuText}>Pets</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]} onPress={() => navigation.navigate('listRedesSociais')}>
-                {/* <View style={styles.badge}>
-                    <Text style={styles.badgeText}>+1</Text>
-                </View> */}
-                <Icon name="unlock" size={30} color="#6B8265" />
-                <Text style={styles.menuText}>Redes Sociais</Text>
-            </TouchableOpacity>
-        </View>
+            <View style={styles.menuContainer}>
+                Content
+            </View>
         </View>
     )
 }
 
-const MeusBens = () => {
+const BensMateriais = () => {
     const { user } = useAuth();
     const navigation = useNavigation();
     const Tab = createBottomTabNavigator();
@@ -169,4 +144,4 @@ const MeusBens = () => {
     );
 };
 
-export default MeusBens;
+export default BensMateriais;
