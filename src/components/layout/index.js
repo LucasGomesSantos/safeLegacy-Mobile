@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -120,9 +120,9 @@ const Layout = ( {content, breadcrumbTitle, breadcrumbSubtitle, add, back, showL
                     headerShown: false
                 })}
             >
-            <Tab.Screen name="InitialScreen" params="1" component={content} />
-            <Tab.Screen name="Profile" component={content} />
-            <Tab.Screen name="Settings" component={content} />
+                <Tab.Screen name="InitialScreen" component={content} />
+                <Tab.Screen name="Profile" component={content} />
+                <Tab.Screen name="Settings" component={content} />
             </Tab.Navigator>
         </View>
 

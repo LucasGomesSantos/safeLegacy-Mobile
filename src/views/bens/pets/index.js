@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
       }
 });
 
-const main = () => {
+const Main = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.containerContent}>
@@ -142,7 +142,7 @@ const Pets = () => {
     return (
         <View style={styles.container}>
            <Layout 
-                content={main} 
+                content={Main} 
                 breadcrumbTitle="Meus Bens"
                 breadcrumbSubtitle={"Pets"}
                 add

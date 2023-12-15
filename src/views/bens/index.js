@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../components/header';
 import { useAuth } from '../../context';
@@ -89,23 +89,23 @@ const main = () => {
                         <Text style={styles.menuText}>Imóveis</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('listVeiculos')}>
-                        <Icon name="car" size={30} color="#6B8265" />
+                        <Icon name="car-outline" size={30} color="#6B8265" />
                         <Text style={styles.menuText}>Veículos</Text>
                     </TouchableOpacity>
                 <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('listBancosInvestimentos')}>
-                        <Icon name="bank" size={30} color="#6B8265" />
+                        <Icon name="wallet-outline" size={30} color="#6B8265" />
                         <Text style={styles.menuText}>Bancos e Investimentos</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]} onPress={() => navigation.navigate('listBensMateriais')}>
-                        <Icon name="tv" size={30} color="#6B8265" />
+                        <Icon name="laptop-outline" size={30} color="#6B8265" />
                         <Text style={styles.menuText}>Bens Materiais</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]} onPress={() => navigation.navigate('listPets')}>
-                        <Icon name="dog" size={30} color="#6B8265" />
+                        <Icon name="paw-outline" size={30} color="#6B8265" />
                         <Text style={styles.menuText}>Pets</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.menuItem, styles.menuItemSpecial]} onPress={() => navigation.navigate('listRedesSociais')}>
-                        <Icon name="unlock" size={30} color="#6B8265" />
+                        <Icon name="lock-open-outline" size={30} color="#6B8265" />
                         <Text style={styles.menuText}>Redes Sociais</Text>
                     </TouchableOpacity>
                 </View>
