@@ -107,11 +107,11 @@ const Breadcrumb = (props) => {
                 <View style={{textAlign: 'center', flexGrow: 1, marginTop: 10, flex: 1, flexDirection: 'row', justifyContent:'center'}}>
                     <>
                         { props.title && (
-                            <Text style={styles.pageTitle}>Meus Bens </Text> 
+                            <Text style={styles.pageTitle}>{props.title}</Text> 
                         )}
 
                         { props.subTitle && (
-                            <Text style={styles.pageSubtitle}>| Imóveis</Text>
+                            <Text style={styles.pageSubtitle}>| {props.subTitle}</Text>
                         )}
                         
                     </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,13 +8,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useAuth } from '../../../context';
 import Header from '../../../components/header';
 import Layout from '../../../components/layout';
+import ListImovel from '../../../components/lists/list-imovel';
 
 
 const styles = StyleSheet.create({
-    menuContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
+    containerContent: {
+        // flexDirection: 'row',
+        // flexWrap: 'wrap',
+        // justifyContent: 'space-around',
         padding: 20,
     },
     menuItem: {
@@ -56,15 +57,16 @@ const styles = StyleSheet.create({
       },
     container: {
         flex: 1,
-        backgroundColor: '#fff',
       },
-      btnHeader: {
+      button: {
         backgroundColor: '#FFF',
-        // width: `40px`,
-        // height: `40px`,
+        width: 50,
+        height: 50,
         padding: 7,
         color: '#064580',
-        borderRadius: '50%'
+        borderRadius: '50%',
+        alignItems: 'center',
+        justifyContent: 'center'
       },
       containerHeaderVoltar: {
         flexDirection: 'row',
@@ -74,40 +76,81 @@ const styles = StyleSheet.create({
       },
       pageTitle: {
         textAlign: 'center',
-        fontSize: '1.75rem',
-        color: '#064580'
+        fontSize: '20',
+        color: '#064580',
+      },
+      pageSubtitle: {
+        fontSize: 13,
+        marginTop: 5,
+        marginLeft:5
       }
 });
 
+const main = () => {
+    const navigation = useNavigation();
+    return (
+        <View style={styles.containerContent}>
+
+            <FlatList
+                data={[{
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                    selected: true
+                }, {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                }, {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                }]}
+                renderItem={ (item) => <ListImovel item={item.item} selected={item.selected} />}
+                keyExtractor={ item => item.id}
+            >
+            </FlatList>
+        </View>
+    )
+}
 
 const BancosInvestimentos = () => {
     const { user } = useAuth();
     const navigation = useNavigation();
     const Tab = createBottomTabNavigator();
     return (
-        <Layout content={() => {
-            return (<View>
-                <View style={styles.containerHeaderVoltar}>
-                    <div>
-                        <TouchableOpacity style={styles.btnHeader} onPress={() => navigation.navigate('MeusBens')}>
-                            {/* <Icon name="arrow-back-circle-sharp" size={30} color="#6B8265" /> */}
-                            <Text><small> {'<'} </small></Text>
-                        </TouchableOpacity>
-                    </div>
-                    <div style={{textAlign: 'center', width: '85%'}}>
-                        <Text style={styles.pageTitle}>Meus Bens | Bancos e investimentos</Text>
-                    </div>
-                    <div>
-                        <TouchableOpacity style={styles.btnHeader} onPress={() => navigation.navigate('Home')}>
-                            <Text><b>+</b></Text>
-                        </TouchableOpacity>
-                    </div>
-                </View>
-                <View style={styles.menuContainer}>
-                    <Text>Content</Text>
-                </View>
-            </View>)
-        }} />
+        <View style={styles.container}>
+           <Layout 
+                content={main} 
+                breadcrumbTitle="Meus Bens"
+                breadcrumbSubtitle={"Bancos e investimentos"}
+                add
+                back="MeusBens"
+                showListType={true}
+            />
+        </View>
+
     );
 };
 
