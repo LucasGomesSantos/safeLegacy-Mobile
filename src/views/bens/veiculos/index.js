@@ -86,7 +86,7 @@ const main = () => {
                 <div>
                     <TouchableOpacity style={styles.btnHeader} onPress={() => navigation.navigate('MeusBens')}>
                         {/* <Icon name="arrow-back-circle-sharp" size={30} color="#6B8265" /> */}
-                        <small> {'<'} </small>
+                        <Text><small> {'<'} </small></Text>
                     </TouchableOpacity>
                 </div>
                 <div style={{textAlign: 'center', width: '85%'}}>
@@ -94,12 +94,13 @@ const main = () => {
                 </div>
                 <div>
                     <TouchableOpacity style={styles.btnHeader} onPress={() => navigation.navigate('Home')}>
-                        <b>+</b>
+                        <Text><b>+</b></Text>
                     </TouchableOpacity>
                 </div>
             </View>
             <View style={styles.menuContainer}>
-                Content
+                <Text>Content</Text>
+                
             </View>
         </View>
     )
