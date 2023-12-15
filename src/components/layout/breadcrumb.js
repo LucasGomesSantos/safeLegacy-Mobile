@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const styles = StyleSheet.create({
@@ -53,14 +54,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
       },
       button: {
-        backgroundColor: '#FFF',
-        width: 50,
-        height: 50,
-        padding: 7,
-        color: '#064580',
-        borderRadius: '50%',
-        alignItems: 'center',
-        justifyContent: 'center'
+        // backgroundColor: '#FFF',
+        // width: 50,
+        // height: 50,
+        // padding: 7,
+        // color: '#064580',
+        // borderRadius: '50%',
+        // alignItems: 'center',
+        // justifyContent: 'center'
       },
       containerHeader: {
         flexDirection: 'row',
@@ -85,10 +86,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
       },
       btnList: {
-        color: '#064580',
-        backgroundColor: 'red',
-        padding: 5,
-        textDecorationColor: 'white'
+        padding: 5
+        // color: '#064580',
+        // backgroundColor: 'red',
+        // padding: 5,
+        // textDecorationColor: 'white'
       }
 });
 
@@ -100,11 +102,11 @@ const Breadcrumb = (props) => {
             <View style={styles.containerHeader}>
                 <View>
                     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(props.back || 'Home')}>
-                        {/* <Icon name="arrow-back-circle-sharp" size={30} color="#6B8265" /> */}
-                        <Text> {'<'} </Text>
+                        <Icon name="arrow-back-circle-outline" size={30} color="#064580" />
+                        {/* <Text> {'<'} </Text> */}
                     </TouchableOpacity>
                 </View>
-                <View style={{textAlign: 'center', flexGrow: 1, marginTop: 10, flex: 1, flexDirection: 'row', justifyContent:'center'}}>
+                <View style={{textAlign: 'center', flexGrow: 1, flex: 1, flexDirection: 'row', justifyContent:'center'}}>
                     <>
                         { props.title && (
                             <Text style={styles.pageTitle}>{props.title}</Text> 
@@ -118,9 +120,22 @@ const Breadcrumb = (props) => {
                 </View>
                 <View>
                     {props.add && (
-                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
-                            <Text>+</Text>
+                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(props.add)}>
+                            {/* <Text>+</Text> */}
+                            
+                            <Icon name="add-circle-outline" size={30} color="#064580" />
                         </TouchableOpacity>
+                    )}
+                    { !props.add && (
+                        <View style={{width: 40}}>
+                            {/* <Text>a</Text> */}
+                            {/* <TouchableOpacity style={styles.btnList}> 
+                                <Icon name="grid-outline" size={20} color="#064580" />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.btnList}>
+                                <Icon name="menu-outline" size={30} color="#064580" />
+                            </TouchableOpacity> */}
+                        </View>
                     )}
                     
                 </View>
@@ -128,13 +143,14 @@ const Breadcrumb = (props) => {
             { props.showListType && (
                 <View style={styles.containerIconsListType}>
                     <TouchableOpacity style={styles.btnList}> 
-                        <Text>Type 1</Text>
+                        <Icon name="grid-outline" size={20} color="#064580" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.btnList}>
-                        <Text>Type 2</Text>
+                        <Icon name="menu-outline" size={30} color="#064580" />
                     </TouchableOpacity>
                 </View>
             )}
+            
         </>
       
     )

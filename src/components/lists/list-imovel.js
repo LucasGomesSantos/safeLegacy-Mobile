@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
     borderEndEndRadius: 5,
     paddingTop: 3,
     paddingBottom: 3,
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   btnEditar: {
     backgroundColor: '#DCE4F9',
@@ -28,6 +30,8 @@ const styles = StyleSheet.create({
     borderEndEndRadius: 5,
     paddingTop: 3,
     paddingBottom: 3,
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   mainContent: {
     padding: 15
@@ -54,13 +58,13 @@ const ListImovel = ({item}) => {
                 <View  style={{flexDirection:'row', marginTop: 15}}>
                     <Text style={{marginRight: 10, fontSize: 12, marginTop: 3, color: '#2245A6'}}>Participantes:</Text>
                     {/* <View> */}
-                        <View style={{width: 20, height: 20, borderRadius: '50%', marginLeft: -3, backgroundColor: 'blue'}}>
+                        <View style={{width: 20, height: 20, borderRadius: '50%', marginLeft: -0, backgroundColor: 'blue'}}>
                             {/* <Text>.</Text> */}
                         </View>
-                        <View style={{width: 20, height: 20, borderRadius: '50%', marginLeft: -3, backgroundColor: 'red'}}>
+                        <View style={{width: 20, height: 20, borderRadius: '50%', marginLeft: -6, backgroundColor: 'red'}}>
                             {/* <Text>.</Text> */}
                         </View>
-                        <View style={{width: 20, height: 20, borderRadius: '50%', marginLeft: -3, backgroundColor: 'gray'}}>
+                        <View style={{width: 20, height: 20, borderRadius: '50%', marginLeft: -6, backgroundColor: 'gray'}}>
                             {/* <Text>.</Text> */}
                         </View>
                     {/* </View> */}
@@ -70,14 +74,16 @@ const ListImovel = ({item}) => {
             { item.selected && (
                 <View style={styles.containerButtons}>
                     <TouchableOpacity style={styles.btnEditar}>
-                        <Text style={{textAlign: 'center', color: '#2245A6', fontSize: 15}}>
+                        <Text style={{textAlign: 'center', color: '#2245A6', fontSize: 15, marginRight: 5}}>
                             Editar
                         </Text>
+                        <Icon name="create-outline" size={15} color="#064580" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.btnDeletar}>
-                        <Text style={{textAlign: 'center', color: 'white', fontSize: 15}}>
+                        <Text style={{textAlign: 'center', color: 'white', fontSize: 15, marginRight: 5}}>
                             Deletar
                         </Text>
+                        <Icon name="trash-outline" size={15} color="white" />
                     </TouchableOpacity>
                 </View>
             )}

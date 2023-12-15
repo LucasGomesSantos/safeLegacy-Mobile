@@ -145,7 +145,7 @@ const Imoveis = () => {
                 content={Main} 
                 breadcrumbTitle="Meus Bens"
                 breadcrumbSubtitle={"Imóveis"}
-                add
+                add="Imoveis/Adicionar"
                 back="MeusBens"
                 showListType={true}
             />

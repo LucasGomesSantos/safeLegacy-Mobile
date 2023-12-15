@@ -80,16 +80,19 @@ const styles = StyleSheet.create({
 });
 
 
-const Layout = ( {content, breadcrumbTitle, breadcrumbSubtitle, add, back, showListType} ) => {
+const Layout = ( {content, breadcrumbTitle, breadcrumbSubtitle, add, back, showListType, header} ) => {
     const { user } = useAuth();
     const navigation = useNavigation();
     const Tab = createBottomTabNavigator();
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Header userName={user.name} />
-            </View>
-            <View>
+            {header !== 'off' && (
+                <View style={styles.header}>
+                    <Header userName={user.name} />
+                </View>
+            )}
+            
+            <View style={{ marginTop: (header === 'off') ? 40 : 0}}>
                 <Breadcrumb 
                     title={breadcrumbTitle} 
                     subTitle={breadcrumbSubtitle} 

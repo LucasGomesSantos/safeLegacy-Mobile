@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
       }
 });
 
-const main = () => {
+const Main = () => {
     const navigation = useNavigation();
     return (
         <View>
@@ -120,7 +120,7 @@ const MeusBens = () => {
     const Tab = createBottomTabNavigator();
     return (
         <Layout 
-          content={main} 
+          content={Main} 
           breadcrumbTitle={'Meus Bens'}
           backTo="Home"
           showListType={false}

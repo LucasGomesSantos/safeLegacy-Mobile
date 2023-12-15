@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BancosInvestimentos from '../views/bens/bancos-investimentos';
 import BensMateriais from '../views/bens/bens-materias';
-import AdicionarImovel from '../views/bens/imoveis';
+import ListImoveis from '../views/bens/imoveis';
+import { AdicionarImovel } from '../views/bens/imoveis/adicionar-imovel';
 import MeusBens from '../views/bens/index'
 import Pets from '../views/bens/pets';
 import RedesSociais from '../views/bens/redes-sociais';
@@ -32,6 +33,11 @@ export default function AuthRoutes() {
             />
             <Stack.Screen
                 name="listImoveis"
+                component={ListImoveis}
+                options={{ headerShown: false }}
+            />
+              <Stack.Screen
+                name="Imoveis/Adicionar"
                 component={AdicionarImovel}
                 options={{ headerShown: false }}
             />
