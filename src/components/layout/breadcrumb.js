@@ -71,8 +71,9 @@ const styles = StyleSheet.create({
       },
       pageTitle: {
         textAlign: 'center',
-        fontSize: '20',
-        color: '#064580',
+        fontSize: '22',
+        color: 'rgba(6, 69, 128, 1)',
+        fontWeight:900
       },
       pageSubtitle: {
         fontSize: 13,
@@ -94,17 +95,24 @@ const styles = StyleSheet.create({
       }
 });
 
-const Breadcrumb = (props) => {
+const Breadcrumb = ({back, ...props}) => {
     const navigation = useNavigation();
 
     return (
         <>
             <View style={styles.containerHeader}>
                 <View>
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(props.back || 'Home')}>
+                    { back && (
+                        <TouchableOpacity 
+                            style={styles.button} 
+                            onPress={() => navigation.navigate(back || 'Home')}
+                        // onPress={() => navigation.goBack()}
+                        >
                         <Icon name="arrow-back-circle-outline" size={30} color="#064580" />
                         {/* <Text> {'<'} </Text> */}
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    )}
+                  
                 </View>
                 <View style={{textAlign: 'center', flexGrow: 1, flex: 1, flexDirection: 'row', justifyContent:'center'}}>
                     <>

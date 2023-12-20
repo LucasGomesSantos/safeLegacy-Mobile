@@ -143,7 +143,7 @@ const Veiculos = () => {
     return (
         <View style={styles.container}>
            <Layout 
-                content={Main} 
+                Content={Main} 
                 breadcrumbTitle="Meus Bens"
                 breadcrumbSubtitle={"Veículos"}
                 add

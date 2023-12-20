@@ -1,4 +1,5 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BancosInvestimentos from '../views/bens/bancos-investimentos';
 import BensMateriais from '../views/bens/bens-materias';
 import ListImoveis from '../views/bens/imoveis';
@@ -7,67 +8,129 @@ import MeusBens from '../views/bens/index'
 import Pets from '../views/bens/pets';
 import RedesSociais from '../views/bens/redes-sociais';
 import Veiculos from '../views/bens/veiculos';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../views/home';
 import Test from '../views/home/test';
+import { Text } from 'react-native';
 
-const Stack = createNativeStackNavigator();
+const { Navigator, Screen} = createBottomTabNavigator();
 
 export default function AuthRoutes() {
     return (
-        <Stack.Navigator>
-            <Stack.Screen
+        <Navigator screenOptions={{
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarActiveTintColor: 'white',
+            tabBarStyle: {
+                backgroundColor: '#064580',
+                
+            }
+        }}>
+            <Screen
                 name="Home"
                 component={Home}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false,
+                    tabBarIcon: ( { color }) => {
+                        return <Icon name={'ios-home-outline'} size={20} color={color} />
+                    },
+                }}
             />
-            <Stack.Screen
+            <Screen
+                name="Profile"
+                component={() => <Text style={{marginTop: 100}}>Profile</Text>}
+                options={{ 
+                    headerShown: false,
+                    tabBarIcon: ( { color }) => {
+                        return <Icon name={'ios-person-outline'} size={20} color={color} />
+                    },
+                }}
+            />
+            <Screen
+                name="Shared"
+                component={() => <Text style={{marginTop: 100}}>Shared</Text>}
+                options={{ 
+                    headerShown: false,
+                    tabBarIcon: ( { color }) => {
+                        return <Icon name={'ios-settings-outline'} size={20} color={color} />
+                    },
+                }}
+            />
+            <Screen
                 name="TestScreen"
                 component={Test}
-                options={{ headerShown: false }}
+                 options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="MeusBens"
                 component={MeusBens}
-                options={{ headerShown: false }}
+                 options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="listImoveis"
                 component={ListImoveis}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
-              <Stack.Screen
+              <Screen
                 name="Imoveis/Adicionar"
                 component={AdicionarImovel}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null,
+                    unmountOnBlur: true
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="listVeiculos"
                 component={Veiculos}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null,
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="listBancosInvestimentos"
                 component={BancosInvestimentos}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="listBensMateriais"
                 component={BensMateriais}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="listPets"
                 component={Pets}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
-            <Stack.Screen
+            <Screen
                 name="listRedesSociais"
                 component={RedesSociais}
-                options={{ headerShown: false }}
+                options={{ 
+                    headerShown: false, 
+                    tabBarButton: () => null 
+                }}
             />
 
-        </Stack.Navigator>
+        </Navigator>
     )
 }
 

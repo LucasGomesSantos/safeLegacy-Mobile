@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
       },
     container: {
         flex: 1,
+        flexGrow:1,
+        // marginBottom: 225
         // backgroundColor: '#fff',
       },
       btnHeader: {
@@ -80,12 +82,23 @@ const styles = StyleSheet.create({
 });
 
 
-const Layout = ( {content, breadcrumbTitle, breadcrumbSubtitle, add, back, showListType, header} ) => {
+const Layout = ( {Content, breadcrumbTitle, breadcrumbSubtitle, add, back, showListType, header} ) => {
     const { user } = useAuth();
     const navigation = useNavigation();
     const Tab = createBottomTabNavigator();
+
+
+    let marginBottom = 100;
+    if(header !== 'off') {
+        marginBottom = 255
+    }
+
+    if(showListType) {
+        marginBottom += 30
+    }
+
     return (
-        <View style={styles.container}>
+        <View style={{...styles.container, marginTop: 10, marginBottom:marginBottom }}>
             {header !== 'off' && (
                 <View style={styles.header}>
                     <Header userName={user.name} />
@@ -101,7 +114,7 @@ const Layout = ( {content, breadcrumbTitle, breadcrumbSubtitle, add, back, showL
                     showListType={showListType}
                 />
             </View>
-            
+{/*             
             <Tab.Navigator
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused, color, size }) => {
@@ -126,7 +139,14 @@ const Layout = ( {content, breadcrumbTitle, breadcrumbSubtitle, add, back, showL
                 <Tab.Screen name="InitialScreen" component={content} />
                 <Tab.Screen name="Profile" component={content} />
                 <Tab.Screen name="Settings" component={content} />
-            </Tab.Navigator>
+            </Tab.Navigator> */}
+            <View >
+                <ScrollView>
+                    <Content />
+                </ScrollView>
+
+            </View>
+            
         </View>
 
     );

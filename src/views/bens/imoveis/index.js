@@ -90,7 +90,7 @@ const Main = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.containerContent}>
-
+{/* 
             <FlatList
                 data={[{
                     participantes: [],
@@ -130,7 +130,46 @@ const Main = () => {
                 renderItem={ (item) => <ListImovel item={item.item} selected={item.selected} />}
                 keyExtractor={ item => item.id}
             >
-            </FlatList>
+            </FlatList> */}
+             {[{
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                    selected: true
+                }, {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                }, {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                },
+                {
+                    participantes: [],
+                    address: 'Rua da colina, 123',
+                }].map((item) => {
+                    return  <ListImovel item={item} selected={item.selected} />
+                })
+
+             }
         </View>
     )
 }
@@ -140,16 +179,16 @@ const Imoveis = () => {
     const navigation = useNavigation();
     const Tab = createBottomTabNavigator();
     return (
-        <View style={styles.container}>
+        // <View style={styles.container}>
            <Layout 
-                content={Main} 
+                Content={Main} 
                 breadcrumbTitle="Meus Bens"
                 breadcrumbSubtitle={"Imóveis"}
                 add="Imoveis/Adicionar"
                 back="MeusBens"
                 showListType={true}
             />
-        </View>
+        // </View>
 
     );
 };

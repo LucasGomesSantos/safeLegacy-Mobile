@@ -82,7 +82,7 @@ const Main = () => {
     const navigation = useNavigation();
     return (
         <View>
-            <ScrollView>
+            {/* <ScrollView> */}
                 <View style={styles.menuContainer}>
                     <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('listImoveis')}>
                         <Icon name="home-outline" size={30} color="#6B8265" />
@@ -109,7 +109,7 @@ const Main = () => {
                         <Text style={styles.menuText}>Redes Sociais</Text>
                     </TouchableOpacity>
                 </View>
-            </ScrollView>
+            {/* </ScrollView> */}
         </View>
     )
 }
@@ -120,9 +120,9 @@ const MeusBens = () => {
     const Tab = createBottomTabNavigator();
     return (
         <Layout 
-          content={Main} 
+          Content={Main} 
           breadcrumbTitle={'Meus Bens'}
-          backTo="Home"
+          back="Home"
           showListType={false}
         //   breadcrumbSubtitle={}
         //   add

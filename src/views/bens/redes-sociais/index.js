@@ -142,7 +142,7 @@ const Redessociais = () => {
     return (
         <View style={styles.container}>
            <Layout 
-                content={Main} 
+                Content={Main} 
                 breadcrumbTitle="Meus Bens"
                 breadcrumbSubtitle={"Redes Sociais"}
                 add

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -10,7 +11,9 @@ import { TextSafePlace } from '../../../components/form-content/text';
 import { SelectSafePlace } from '../../../components/form-content/select';
 import { ButtonSafePlace } from '../../../components/form-content/button';
 import { FileSafePlace } from '../../../components/form-content/file';
-
+import Icon from 'react-native-vector-icons/Ionicons';
+import { AdicionarHerdeiro } from '../../../components/adicionar-herdeiro/adicionar-herdeiro';
+import { useFocusEffect } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
     containerContent: {
@@ -87,61 +90,101 @@ const styles = StyleSheet.create({
       }
 });
 
-const Content = () => {
+const AdicionarImovelScreen = () => {
     const navigation = useNavigation();
-    return (
-        <View style={styles.containerContent}>
-            <ScrollView>
-                <View style={{gap: 10}}>
-                <SelectSafePlace
-                    options={[{id:1, name: 'Casa'},{id:2, name: 'Apartamento'},{id:3, name: 'Sítio'},{id:4, name: 'Chácara'},{id:5, name: 'Fazenda'},]}
-                    selected=""
-                    placeholder="Tipo de Imóvel"
-                />
-                 <TextSafePlace
-                    name="cep"
-                    placeholder="CEP"
-                    value=""  
-                />
-                <TextSafePlace
-                    name="rua"
-                    placeholder="Endereço"
-                    value=""
-                />
-                <TextSafePlace
-                    name="numero"
-                    placeholder="Número"
-                    value=""
-                />
-                <TextSafePlace
-                    name="complemento"
-                    placeholder="Complemento"
-                    value=""
-                />
-                <TextSafePlace
-                    name="bairro"
-                    placeholder="Bairro"
-                    value=""
-                />
-                <TextSafePlace
-                    name="cidade"
-                    placeholder="Cidade"
-                    value=""
-                />
-                <TextSafePlace
-                    name="estado"
-                    placeholder="Estado"
-                    value=""
-                /> 
-                <FileSafePlace />
-                <ButtonSafePlace 
-                    placeholder="Continuar"
-                    icon=""
-                />
-                </View>
-            </ScrollView>
-        </View>
-    )
+
+    const [step, setStep] = useState(0);
+
+    if (step === 0) {
+        return (
+            <View style={styles.containerContent}>
+                {/* <ScrollView> */}
+                    <View style={{gap: 10}}>
+                    <SelectSafePlace
+                        options={[{id:1, name: 'Casa'},{id:2, name: 'Apartamento'},{id:3, name: 'Sítio'},{id:4, name: 'Chácara'},{id:5, name: 'Fazenda'},]}
+                        selected=""
+                        placeholder="Tipo de Imóvel"
+                    />
+                    <View style={{width: '60%'}}>
+                        <TextSafePlace
+                            name="cep"
+                            placeholder="CEP"
+                            value=""  
+                        />
+                    </View>
+                    <TextSafePlace
+                        name="rua"
+                        placeholder="Endereço"
+                        value=""
+                    />
+                    <View style={{flexDirection:'row',gap: 10, flex: '1', flexGrow: '1'}}>
+                        <View style={{flex:1, flexGrow: 1}}>
+                            <TextSafePlace
+                                name="numero"
+                                placeholder="Número"
+                                value=""
+                            />
+                        </View>
+                        <View style={{flex:1, flexGrow: 1}}>
+                            <TextSafePlace
+                                name="complemento"
+                                placeholder="Complemento"
+                                value=""
+                            />
+                        </View>
+                        
+                    </View>
+                    
+                    <TextSafePlace
+                        name="bairro"
+                        placeholder="Bairro"
+                        value=""
+                    />
+                    <TextSafePlace
+                        name="cidade"
+                        placeholder="Cidade"
+                        value=""
+                    />
+                    <TextSafePlace
+                        name="estado"
+                        placeholder="Estado"
+                        value=""
+                    /> 
+                    <FileSafePlace />
+                    <ButtonSafePlace 
+                        placeholder="Próxima Etapa"
+                        icon=""
+                        onPress={() => setStep(1)}
+                    />
+                    </View>
+                {/* </ScrollView> */}
+            </View>
+        )
+    }
+
+    if (step === 1) {
+        return (
+           <AdicionarHerdeiro 
+                herdeiros={[
+                    {
+                        name: 'Pedro',
+                        percentage: '50%',
+                        selected: true
+                    },
+                    {
+                        name: 'Ana',
+                        percentage: '50%'
+                    },
+                    {
+                        name: 'Carol',
+                        percentage: '50%'
+                    },
+                ]}
+           />
+            
+        )
+    }
+    
 }
 
 export const AdicionarImovel = () => {
@@ -151,7 +194,7 @@ export const AdicionarImovel = () => {
     return (
         <View style={styles.container}>
            <Layout 
-                content={Content} 
+                Content={AdicionarImovelScreen} 
                 breadcrumbTitle="Adicionar Imóvel"
                 // breadcrumbSubtitle={""}
                 // add="Imoveis/Adicionar"
